@@ -13,6 +13,7 @@
         <h1>Cadastrar Departamentos</h1>
         <hr>
         <form method="POST" action="acao-departamentos.php" onsubmit="return validaDepto()">
+
             <div class="row">
                 <!-- maximo de 12 colunas senao quebra -->
                 <div class="col-md-6 col-lg-3">
@@ -33,6 +34,16 @@
                 
             </div>
         </form>
+
+        
+        <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-danger">
+                        <i class="glyphicon glyphicon-warning-sign"></i> <span>ERRO DO USUÁRIO</span>
+                    </div>
+                </div>
+            </div>
+
         <a href="listar-departamentos.php" class="btn btn-success"><i class="glyphicon glyphicon-chevron-left"></i> VOLTAR</a>
     </div>    
 
