@@ -22,7 +22,7 @@ $result = $sql->fetchAll();
     <hr>
     <a href="form-departamentos.php" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> NOVO</a> 
     <hr>
-    <table class="table table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Nome</th>

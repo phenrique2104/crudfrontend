@@ -1,3 +1,12 @@
-# crudfrontend
+# crudfrontend com bootstrap/php
+M.V.C - Model View Controller
 
-teste
+# _C.M.S_ - EX. Cake
+
+Form - nome, sigla, ação
+
+# Passos Para Fazer o Commit para o GITHUB
+1 - git status
+2 - git add .
+3 - git commit -m "MENSAGEM DE COMMIT"
+5 - git push
