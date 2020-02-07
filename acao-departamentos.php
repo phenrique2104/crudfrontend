@@ -1,9 +1,9 @@
 <?php
 include('conexao.php');
 
-if(isset($_POST['acao'])) {
-    $acao = $_POST['acao'];
-
+if(isset($_REQUEST['acao'])) {
+    $acao = $_REQUEST['acao'];
+    // echo $acao;exit;
     switch ($acao) {
         case 'inserir':
             if( isset($_POST['nome']) && isset($_POST['sigla'])) {
@@ -21,13 +21,35 @@ if(isset($_POST['acao'])) {
             }
         break;
         case 'atualizar':
-            echo 'atualiza no banco';
+            if(isset($_POST['nome']) && isset($_POST['sigla']) && isset($_POST['id_departamento'])) {
+                $nome = trim($_POST['nome']);
+                $sigla = trim($_POST['sigla']);
+                $id_departamento = $_POST['id_departamento'];
+                #valida se veio algo dentro das variáveis
+                if (strlen($nome)  > 0 && strlen($sigla)  > 0) {
+                $sql = $conn->prepare("UPDATE DEPARTAMENTOS SET 
+                                        NOME = '$nome', 
+                                        SIGLA = '$sigla'
+                                        WHERE ID_DEPARTAMENTO = $id_departamento");
+                $sql->execute();
+            }
+        }
+            
         break;
         case 'excluir':
-            echo 'exclui no banco';
+            if (isset($_GET['id_departamento'])) {
+                
+                $id_departamento = $_GET['id_departamento'];
+                $sql = $conn->prepare("DELETE FROM DEPARTAMENTOS WHERE ID_DEPARTAMENTO = $id_departamento");
+                $sql->execute();
+                
+                
+            }
+                
         break;
         default:
             # nao aceita fazer nada
+            header('location:listar-departamentos.php');
         break;    
     }
 

@@ -1,7 +1,7 @@
 <?php
 include('conexao.php');
 
-$sql = $conn->prepare('SELECT * FROM DEPARTAMENTOS');
+$sql = $conn->prepare('SELECT * FROM DEPARTAMENTOS ORDER BY NOME');
 $sql->execute();
 
 $result = $sql->fetchAll(); 
@@ -38,8 +38,9 @@ $result = $sql->fetchAll();
                 <td><?php echo $row['nome']; ?></td>
                 <td><?php echo $row['sigla']; ?></td>
                 <td class="text-right">
-                    <a href="#" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
-                    <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a href="form-departamentos.php?id_departamento=<?php echo $row['id_departamento']; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+
+                    <a onclick="return confirm('Deseja Realmente Excluir?')"href="acao-departamentos.php?acao=excluir&id_departamento=<?php echo $row['id_departamento']; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>        
             </tr>
             <?php
