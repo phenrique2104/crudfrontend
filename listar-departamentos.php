@@ -16,6 +16,9 @@ $result = $sql->fetchAll();
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
+<?php
+include('menu.php');
+?>
 
 <div class="container">
     <h1>Listagem de Departamentos</h1>
