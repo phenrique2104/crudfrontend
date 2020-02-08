@@ -20,13 +20,12 @@ if ( isset($_POST['usuario']) && isset($_POST['senha']) ) {
         $_SESSION['logado'] = true;
         $_SESSION['nome'] = $result[0]['nome']; # armazena em sessao o nome do usuario que veio do DB
 
-
-
         header('location:index.php');
 
     } else {
         header('location:login.php?falhou=1');
     }
+    
 } else {
     header('location:login.php');
 }
