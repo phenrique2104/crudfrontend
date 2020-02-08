@@ -1,11 +1,11 @@
 <?php
+include('valida-sessao.php');
 include('conexao.php');
 
 $sql = $conn->prepare('SELECT * FROM DEPARTAMENTOS ORDER BY NOME');
 $sql->execute();
 
-$result = $sql->fetchAll(); 
-
+$result = $sql->fetchAll();
 ?>
 <html lang="en">
 <head>
@@ -19,42 +19,46 @@ $result = $sql->fetchAll();
 <?php
 include('menu.php');
 ?>
-
 <div class="container">
     <h1>Listagem de Departamentos</h1>
     <hr>
-    <a href="form-departamentos.php" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> NOVO</a> 
+    <a href="form-departamentos.php" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> NOVO</a>
+
     <hr>
-    <table class="table table-hover">
+
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Nome</th>
                 <th>Sigla</th>
-                <!-- <th>Ação</th> -->
-            <tr>    
+                <th class="text-right">Ação</th>
+            </tr>
         </thead>
+
         <tbody>
             <?php
-            foreach ($result as $row) {
+            foreach ($result as $r) {
             ?>
             <tr>
-                <td><?php echo $row['nome']; ?></td>
-                <td><?php echo $row['sigla']; ?></td>
+                <td><?php echo $r['nome']; ?></td>
+                <td><?php echo $r['sigla']; ?></td>
                 <td class="text-right">
-                    <a href="form-departamentos.php?id_departamento=<?php echo $row['id_departamento']; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a href="form-departamentos.php?id_departamento=<?php echo $r['id_departamento']; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
 
-                    <a onclick="return confirm('Deseja Realmente Excluir?')"href="acao-departamentos.php?acao=excluir&id_departamento=<?php echo $row['id_departamento']; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
-                </td>        
+                    <a onclick="return confirm('Deseja realmente exluir?')" href="acao-departamentos.php?acao=excluir&id_departamento=<?php echo $r['id_departamento']; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
             </tr>
             <?php
             }
             ?>
-            
-        </tbody>
 
+        </tbody>
     </table>
-    <a href="index.php" class="btn btn-success"><i class="glyphicon glyphicon-chevron-left"></i> VOLTAR</a>  
-</div>    
+
+
+
+    <a href="index.php" class="btn btn-success"><i class="glyphicon glyphicon-chevron-left"></i> VOLTAR</a>
+</div>
 
 </body>
 </html>

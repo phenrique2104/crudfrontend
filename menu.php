@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">CRUD</a>
+      <a class="navbar-brand" href="#">LOGOTIPO</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,7 +24,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">LOGOUT</a></li>
+        <li><a href="logout.php">LOGOUT</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

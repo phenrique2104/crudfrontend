@@ -1,14 +1,15 @@
 <?php
+include('valida-sessao.php');
 include('conexao.php');
 
 # verifica se vai ser uma edição ou inserção
-if(isset($_GET['id_departamento'])) {
+if ( isset($_GET['id_departamento']) ){
     $id_departamento = $_GET['id_departamento'];
     $titulo = 'Alterar';
 
     $sql = $conn->prepare("SELECT * FROM DEPARTAMENTOS WHERE ID_DEPARTAMENTO = $id_departamento");
     $sql->execute();
-    $result = $sql->fetchALL();
+    $result = $sql->fetchAll();
 
     $nome = $result[0]['nome'];
     $sigla = $result[0]['sigla'];
@@ -17,13 +18,11 @@ if(isset($_GET['id_departamento'])) {
 } else {
     $titulo = 'Cadastrar';
     $nome = null;
-    $sigla = ''; 
+    $sigla = null;
     $id_departamento = null;
     $acao = 'inserir';
-
 }
 ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,47 +36,53 @@ if(isset($_GET['id_departamento'])) {
 <?php
 include('menu.php');
 ?>
+<div class="container">
+    <h1><?php echo $titulo; ?> departamento</h1>
+    <hr>
 
-    <div class="container">
-        <h1><?php echo $titulo; ?> Departamentos</h1>
-        <hr>
-        <form method="POST" action="acao-departamentos.php" onsubmit="return validaDepto()">
+    <form method="POST" action="acao-departamentos.php" onsubmit="return validaDepto()">
 
-            <div class="row">
-                <!-- maximo de 12 colunas senao quebra -->
-                <div class="col-md-6 col-lg-3">
-                    <label for="nome">Nome:</label>
-                    <input value="<?php echo $nome;?>" type="text" name="nome" id="nome" placeholder="Digite o nome" class="form-control">
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <label for="nome">Sigla:</label>
-                    <input value="<?php echo $sigla;?>" type="text"  name="sigla" id="sigla" placeholder="Digite a sigla" class="form-control">
-                </div>
-
-                <div class="col-lg-2">
-                    <input type="hidden" name="id_departamento" value="<?php echo $id_departamento; ?>">
-
-                    <input type="hidden" name="acao" value="<?php echo $acao; ?>">
-
-                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> SALVAR</button> 
-                </div>
-                
-            </div>
-        </form>
-
-        
         <div class="row">
-                <div class="col-lg-12">
-                    <div class="alert alert-danger hidden"  id="msg-erro">
-                        <i class="glyphicon glyphicon-warning-sign"></i> <span>ERRO DO USUÁRIO</span>
-                    </div>
-                </div>
+            <div class="col-md-6 col-lg-3">
+                <label for="nome">Nome:</label>
+                <input value="<?php echo $nome; ?>" type="text" name="nome" id="nome" placeholder="digite o nome" class="form-control">
             </div>
 
-        <a href="listar-departamentos.php" class="btn btn-success"><i class="glyphicon glyphicon-chevron-left"></i> VOLTAR</a>
-    </div>    
+            <div class="col-md-6 col-lg-3">
+                <label for="sigla">Sigla:</label>
+                <input value="<?php echo $sigla; ?>" type="text" name="sigla" id="sigla" placeholder="digite a sigla" class="form-control">
+            </div>
 
-    <script src="js/departamentos.js"></script>
+            <div class="col-md-12 col-lg-2 text-center">
 
+                <input type="hidden" name="id_departamento" value="<?php echo $id_departamento; ?>">
+                <input type="hidden" name="acao" value="<?php echo $acao; ?>">
+
+                <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> SALVAR</button>                
+            </div>
+        </div>
+
+    </form>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-danger hidden" id="msg-erro">
+                <i class="glyphicon glyphicon-warning-sign"></i> <span></span>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col-md-12 col-lg-1 text-center">    
+            
+            <a href="listar-departamentos.php" class="btn btn-success"><i class="glyphicon 
+            glyphicon-chevron-left"></i> VOLTAR</a>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/departamentos.js"></script>
 </body>
 </html>

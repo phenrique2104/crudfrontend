@@ -1,3 +1,6 @@
+<?php
+include('valida-sessao.php');
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +15,8 @@ include('menu.php');
 ?>
 
 <div class="container">
-    <h1>CRUD</h1>
-    <hr>
-    <a href="listar-departamentos.php" class="btn btn-success">DEPARTAMENTOS<a>  
-
-
-</div>    
+    <h3>Bem Vindo, <?php echo $_SESSION['nome']; ?></h3>
+</div>
 
 </body>
 </html>

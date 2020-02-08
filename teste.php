@@ -1,13 +1,12 @@
-<?php 
+<?php
 include('conexao.php');
 
-// executa uma query no banco
-$sql = $conn->prepare('SELECT * FROM Funcionarios');
+
+$sql = $conn->prepare('SELECT * FROM FUNCIONARIOS');
 $sql->execute();
 
 $result = $sql->fetchAll();
 
-var_dump($result) ;
-
+var_dump($result);
 
 ?>
