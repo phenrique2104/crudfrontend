@@ -1,0 +1,16 @@
+https://getbootstrap.com/
+
+https://getbootstrap.com.br/docs/3.3/
+
+
+https://ngrok.com/download
+
+https://desenvolvimentoparaweb.com/css/unidades-css-rem-vh-vw-vmin-vmax-ex-ch/
+
+Plugin de Tabelas e Busca em JS
+https://datatables.net/
+
+
+https://daneden.github.io/animate.css/
+https://elrumordelaluz.github.io/csshake/
+https://ianlunn.github.io/Hover/

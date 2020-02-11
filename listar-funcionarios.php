@@ -14,6 +14,7 @@ $result = $sql->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CRUD</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/datatables.bs.css">
 </head>
 <body>
 <?php
@@ -42,7 +43,7 @@ include('menu.php');
             ?>
             <tr>
                 <td><?php echo $r['nome']; ?></td>
-                <td><?php echo $r['salario']; ?></td>
+                <td>R$ <?php echo number_format($r['salario'], 2, ',', '.'); ?></td>
                 <td><?php echo $r['sexo']; ?></td>
                     <td class="text-right">
                     <a href="form-funcionarios.php?id_funcionario=<?php echo $r['id_funcionario']; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -61,6 +62,27 @@ include('menu.php');
 
     <a href="index.php" class="btn btn-success"><i class="glyphicon glyphicon-chevron-left"></i> VOLTAR</a>
 </div>
+
+<script src="js/datatables.bs.js"></script>
+
+<script>
+
+//USANDO A JQUERY MANDAMOS O JS EXECUTAR UMA FUNÇÃO ANÔN9MA SOPMENTE QUANDO A PÁG. CARREGAR
+//FUNÇÃO ANÔNIMA - NÃO FICA ARMAZENADA EM MEMÓRIA
+$(document).ready( function () {
+
+
+    $('.table').dataTable({
+        pageLength: 20,
+        lengthChange: false,
+        language : {
+            search : "Buscar:"
+        }
+    });
+
+} );
+
+</script>
 
 </body>
 </html>

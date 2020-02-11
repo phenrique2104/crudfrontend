@@ -9,4 +9,5 @@ Form - nome, sigla, ação
 1 - git status
 2 - git add .
 3 - git commit -m "MENSAGEM DE COMMIT"
-5 - git push
+4 - git push
+
