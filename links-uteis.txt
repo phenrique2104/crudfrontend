@@ -1,16 +1,24 @@
+Download da Bootstrap
 https://getbootstrap.com/
-
 https://getbootstrap.com.br/docs/3.3/
 
+Download da jQuery
+http://jquery.com
+
+
+Plugin de Tabelas e Busca em JS
+https://datatables.net/
 
 https://ngrok.com/download
 
 https://desenvolvimentoparaweb.com/css/unidades-css-rem-vh-vw-vmin-vmax-ex-ch/
 
-Plugin de Tabelas e Busca em JS
-https://datatables.net/
 
 
+Plugin 
+https://igorescobar.github.io/jQuery-Mask-Plugin/
+
+Animações em CSS - para usar em Validações
 https://daneden.github.io/animate.css/
 https://elrumordelaluz.github.io/csshake/
 https://ianlunn.github.io/Hover/
